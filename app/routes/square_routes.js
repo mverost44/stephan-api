@@ -14,7 +14,7 @@ const defaultClient = SquareConnect.ApiClient.instance
 
 // Configure OAuth2 access token for authorization: oauth2
 const oauth2 = defaultClient.authentications['oauth2']
-oauth2.accessToken = process.env.SANDBOX_TOKEN
+oauth2.accessToken = process.env.SQUARE_TOKEN
 
 const apiInstance = new SquareConnect.CustomersApi()
 const transactionInstance = new SquareConnect.TransactionsApi()
@@ -30,7 +30,7 @@ const inviteEmail = function (customerEmail) {
 }
 
 const transactionPromise = function (data, customerId) {
-  const locationId = process.env.SANDBOX_LOCATION
+  const locationId = process.env.LOCATION
   const body = {
     idempotency_key: keygen.transaction_id(),
     customer_id: customerId,
